@@ -91,7 +91,6 @@ namespace 读取Txt文本到数据库
                 {
                     label1.Text = "导入完毕";
                 }));
-                
             });
             thread.IsBackground = true;
             thread.Start();
