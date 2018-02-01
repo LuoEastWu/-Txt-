@@ -323,7 +323,11 @@ namespace 读取Txt文本到数据库
                             SqlServerHelp serverHelp = new SqlServerHelp();
                             serverHelp.EJESqlServer(zptModel.DataInfo(zptTxtData), info.FullName.ToString(), labAimPath.Text);
                             count++;
-                            label2.Text = "检查：" + count;
+                            label2.Invoke(new System.Threading.ThreadStart(delegate ()
+                            {
+                                label2.Text = "检查：" + count;
+                            }));
+                            
                         }
                     }
 
