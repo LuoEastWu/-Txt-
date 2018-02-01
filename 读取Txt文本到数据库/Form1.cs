@@ -81,8 +81,6 @@ namespace 读取Txt文本到数据库
                             {
                                 label2.Text = "导入数：" + daoruCount;
                             }));
-
-
                         }
 
                     }
