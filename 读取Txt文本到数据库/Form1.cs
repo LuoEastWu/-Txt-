@@ -241,18 +241,13 @@ namespace 读取Txt文本到数据库
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string FileName = @"C:\Users\Luo\Desktop\";
-            String SentPath = FileName + @"\上传目录\";
-            if (!Directory.Exists(SentPath))
+            labSourcePath.Text = Common.SelectPath();
+            if (String.IsNullOrWhiteSpace(labSourcePath.Text))
             {
-                Directory.CreateDirectory(SentPath);
+                "提示".MessagesShowOk("请选择上传文件目录！");
             }
-            String SentBackPath = FileName + "/上传成功/";
-            if (!Directory.Exists(SentBackPath))
-            {
-                Directory.CreateDirectory(SentBackPath);
-            }
-            DirectoryInfo Dr = new DirectoryInfo(SentPath);
+            labAimPath.Text = Common.SelectPath();
+            DirectoryInfo Dr = new DirectoryInfo(labSourcePath.Text);
             var Files = Dr.GetFiles().ToList();
             foreach (FileInfo info in Dr.GetFiles("*.txt"))
             {
